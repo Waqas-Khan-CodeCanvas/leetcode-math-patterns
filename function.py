@@ -24,7 +24,8 @@ topic -> functions:
         iv -> arbitrary arguments *args and **kawargs 
     
     variable scope (local , global , nonlocal) 
-    function annotations       
+    function annotations   
+    function as a modules    
         
     types of user defined functions
         simple function
