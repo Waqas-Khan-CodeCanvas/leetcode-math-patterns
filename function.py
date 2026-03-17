@@ -21,7 +21,9 @@ topic -> functions:
         i -> positionanl arguments and positional only arguments
         ii -> keyword arguments and keyword only arguments
         iii -> defalt parameters
-        iv -> arbitrary arguments *args and **kawargs    
+        iv -> arbitrary arguments *args and **kawargs 
+    
+    variable scope (local , global , nonlocal)       
         
     types of user defined functions
         simple function
