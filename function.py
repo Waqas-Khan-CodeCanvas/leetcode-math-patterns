@@ -23,7 +23,8 @@ topic -> functions:
         iii -> defalt parameters
         iv -> arbitrary arguments *args and **kawargs 
     
-    variable scope (local , global , nonlocal)       
+    variable scope (local , global , nonlocal) 
+    function annotations       
         
     types of user defined functions
         simple function
