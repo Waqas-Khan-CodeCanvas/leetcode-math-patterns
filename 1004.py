@@ -67,3 +67,13 @@ def run_tests():
 
 if __name__ == "__main__":
     run_tests()
+    
+    
+# length of the last word
+# reverse a string
+# reverse vowels of the string
+# reverse 2 digit  of  a numbere
+# count digits
+# sum of digits
+# in memory replacement
+# recursion problems  
