@@ -39,3 +39,38 @@ Explanation:
     Distinct values in the submatrix are [-2, 3, 5].
     The minimum absolute difference in the submatrix is |3 - 5| = 2.
     Thus, the answer is [[1, 2]]."""
+    
+    
+    
+class Solution:
+    def minAbsDiff(self, grid: list[list[int]], k: int) -> list[list[int]]:
+        m, n = len(grid), len(grid[0])
+        ans = []
+        
+        for i in range(m - k + 1):
+            row = []
+            for j in range(n - k + 1):
+                vals = sorted({grid[r][c] for r in range(i, i+k) for c in range(j, j+k)})
+                if len(vals) == 1:
+                    row.append(0)
+                else:
+                    row.append(min(vals[x+1] - vals[x] for x in range(len(vals)-1)))
+            ans.append(row)
+        
+        return ans
+
+
+# --- Test locally in VS Code ---
+if __name__ == "__main__":
+    sol = Solution()
+
+    test_cases = [
+        {"grid": [[1, 8], [3, -2]],        "k": 2, "expected": [[2]]},
+        {"grid": [[3, -1]],                 "k": 1, "expected": [[0, 0]]},
+        {"grid": [[1, -2, 3], [2, 3, 5]],  "k": 2, "expected": [[1, 2]]},
+    ]
+
+    for i, tc in enumerate(test_cases):
+        result = sol.minAbsDiff(tc["grid"], tc["k"])
+        status = "PASS" if result == tc["expected"] else "FAIL"
+        print(f"Test {i+1}: {status} | got {result} | expected {tc['expected']}")
