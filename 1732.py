@@ -14,3 +14,19 @@ Example 2:
 Input: gain = [-4,-3,-2,-1,4,3,2]
 Output: 0
 Explanation: The altitudes are [0,-4,-7,-9,-10,-6,-3,-1]. The highest is 0."""
+
+
+from typing import List
+
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        max_alt = 0
+        current = 0
+        for g in gain:
+            current += g
+            max_alt = max(max_alt, current)
+        return max_alt
+
+# Test cases
+print(Solution().largestAltitude([-5,1,5,0,-7]))  # Output: 1
+print(Solution().largestAltitude([-4,-3,-2,-1,4,3,2]))  # Output: 0
