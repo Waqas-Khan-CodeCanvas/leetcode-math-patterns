@@ -18,3 +18,29 @@ Input: grid = [[3,4,2,3],[2,3,4,2]], x = 0, y = 2, k = 2
 Output: [[3,4,4,2],[2,3,2,3]]
 Explanation:
 The diagram above shows the grid before and after the transformation."""
+
+
+
+from typing import List
+
+class Solution:
+    def reverseSubmatrix(self, grid: List[List[int]], x: int, y: int, k: int) -> List[List[int]]:
+        for i in range(k // 2):
+            top, bottom = x + i, x + k - 1 - i
+            for j in range(y, y + k):
+                grid[top][j], grid[bottom][j] = grid[bottom][j], grid[top][j]
+        return grid
+
+
+if __name__ == "__main__":
+    s = Solution()
+
+    # Example 1
+    grid1 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+    print(s.reverseSubmatrix(grid1, 1, 0, 3))
+    # Expected: [[1,2,3,4],[13,14,15,8],[9,10,11,12],[5,6,7,16]]
+
+    # Example 2
+    grid2 = [[3,4,2,3],[2,3,4,2]]
+    print(s.reverseSubmatrix(grid2, 0, 2, 2))
+    # Expected: [[3,4,4,2],[2,3,2,3]]
