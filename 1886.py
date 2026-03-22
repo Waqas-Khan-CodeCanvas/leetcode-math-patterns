@@ -19,3 +19,17 @@ Example 3:
 Input: mat = [[0,0,0],[0,1,0],[1,1,1]], target = [[1,1,1],[0,1,0],[0,0,0]]
 Output: true
 Explanation: We can rotate mat 90 degrees clockwise two times to make mat equal target."""
+
+
+from typing import List
+
+class Solution:
+    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+        for _ in range(4):
+            if mat == target:
+                return True
+            # rotate 90° clockwise
+            mat = [list(row) for row in zip(*mat[::-1])]
+        return False
+
+
