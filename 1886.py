@@ -33,3 +33,16 @@ class Solution:
         return False
 
 
+# Test locally
+if __name__ == "__main__":
+    sol = Solution()
+    
+    tests = [
+        ([[0,1],[1,0]], [[1,0],[0,1]], True),
+        ([[0,1],[1,1]], [[1,0],[0,1]], False),
+        ([[0,0,0],[0,1,0],[1,1,1]], [[1,1,1],[0,1,0],[0,0,0]], True),
+    ]
+    
+    for i, (mat, target, expected) in enumerate(tests, 1):
+        result = sol.findRotation(mat, target)
+        print(f"Test {i}: {result} (Expected: {expected})")
