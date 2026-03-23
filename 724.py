@@ -45,3 +45,16 @@ class Solution:
         return -1
     
     
+# test Cases for the 724 problem solutions    
+if __name__ == "__main__":
+    sol = Solution()
+    
+    tests = [
+        ([1,7,3,6,5,6], 3),
+        ([1,2,3], -1),
+        ([2,1,-1], 0),
+    ]
+    
+    for i, (nums, expected) in enumerate(tests, 1):
+        result = sol.pivotIndex(nums)
+        print(f"Test {i}: {result} (Expected: {expected})")
