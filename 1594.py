@@ -65,3 +65,12 @@ class Solution:
         return result % MOD if result >= 0 else -1
 
 
+# Test
+if __name__ == "__main__":
+    sol = Solution()
+    
+    grid = [[1,-2,1],
+            [1,-2,1],
+            [3,-4,1]]
+    
+    print(sol.maxProductPath(grid))  # Expected: 8
