@@ -34,3 +34,12 @@ class Solution:
         return [list(set1 - set2), list(set2 - set1)]
 
 
+# test
+if __name__ == "__main__":
+    nums1 = [1, 2, 3]
+    nums2 = [2, 4, 6]
+    
+    sol = Solution()
+    result = sol.findDifference(nums1, nums2)
+    
+    print(result)
