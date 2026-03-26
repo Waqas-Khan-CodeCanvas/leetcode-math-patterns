@@ -127,3 +127,17 @@ class Solution:
         return False
 
 
+# test case
+if __name__ == "__main__":
+    sol = Solution()
+
+    tests = [
+        ([[1, 4], [2, 3]], True),
+        ([[1, 2], [3, 4]], True),
+        ([[1, 2, 4], [2, 3, 5]], False),
+        ([[4, 1, 8], [3, 2, 6]], False),
+    ]
+
+    for i, (grid, expected) in enumerate(tests):
+        result = sol.canPartitionGrid(grid)
+        print(f"Test {i+1}: {result} (Expected: {expected})")
