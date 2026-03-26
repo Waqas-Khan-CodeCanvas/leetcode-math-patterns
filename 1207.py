@@ -28,4 +28,15 @@ class Solution:
         return len(counts) == len(set(counts))
     
 
- 
+# test  case 
+if __name__ == "__main__":
+    sol = Solution()
+    
+    tests = [
+        ([1,2,2,1,1,3], True),
+        ([1,2], False),
+        ([-3,0,1,-3,1,1,1,-3,10,0], True)
+    ]
+    
+    for arr, expected in tests:
+        print(sol.uniqueOccurrences(arr), "Expected:", expected) 
