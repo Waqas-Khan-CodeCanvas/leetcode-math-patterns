@@ -58,3 +58,12 @@ class Solution:
         return False
 
 
+#  Test
+if __name__ == "__main__":
+    sol = Solution()
+    
+    grid1 = [[1, 4], [2, 3]]
+    grid2 = [[1, 3], [2, 4]]
+    
+    print(sol.canPartitionGrid(grid1))  # Expected: True
+    print(sol.canPartitionGrid(grid2))  # Expected: False
