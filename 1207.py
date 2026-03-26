@@ -15,3 +15,17 @@ Example 3:
 Input: arr = [-3,0,1,-3,1,1,1,-3,10,0]
 Output: true
  """
+
+ 
+from typing import List
+from collections import Counter
+
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        freq = Counter(arr)          # count occurrences
+        counts = freq.values()       # get counts
+        
+        return len(counts) == len(set(counts))
+    
+
+ 
