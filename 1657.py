@@ -49,3 +49,19 @@ class Solution:
         return sorted(freq1.values()) == sorted(freq2.values())
 
 
+
+# test  case
+if __name__ == "__main__":
+    sol = Solution()
+    
+    test_cases = [
+        ("abc", "bca", True),
+        ("a", "aa", False),
+        ("cabbba", "abbccc", True),
+        ("aaabbbbcc", "bbbaaaccc", True),
+        ("abcd", "abcc", False)
+    ]
+    
+    for w1, w2, expected in test_cases:
+        result = sol.closeStrings(w1, w2)
+        print(f"word1={w1}, word2={w2} → {result} (Expected: {expected})")
