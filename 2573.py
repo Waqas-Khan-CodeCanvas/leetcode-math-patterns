@@ -87,3 +87,15 @@ class Solution:
         return word
 
 
+# test cases
+if __name__ == "__main__":
+    sol = Solution()
+
+    lcp1 = [[4,0,2,0],[0,3,0,1],[2,0,2,0],[0,1,0,1]]
+    print(sol.findTheString(lcp1))  # Expected: "abab"
+
+    lcp2 = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,1]]
+    print(sol.findTheString(lcp2))  # Expected: "aaaa"
+
+    lcp3 = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,3]]
+    print(sol.findTheString(lcp3))  # Expected: ""
