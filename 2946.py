@@ -45,3 +45,11 @@ class Solution:
         return True
 
 
+# test case
+if __name__ == "__main__":
+    sol = Solution()
+    
+    mat = [[1,2,3],[4,5,6],[7,8,9]]
+    k = 4
+    
+    print(sol.areSimilar(mat, k))  # Output: False
