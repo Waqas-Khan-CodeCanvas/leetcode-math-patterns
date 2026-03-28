@@ -24,3 +24,66 @@ Explanation: lcp[3][3] cannot be equal to 3 since word[3,...,3] consists of only
  """
  
  
+from typing import List
+
+class Solution:
+    def findTheString(self, lcp: List[List[int]]) -> str:
+        n = len(lcp)
+
+        # Step 1: basic validation
+        for i in range(n):
+            if lcp[i][i] != n - i:
+                return ""
+
+        # DSU (Union-Find)
+        parent = list(range(n))
+
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
+
+        def union(x, y):
+            parent[find(x)] = find(y)
+
+        # Step 2: union positions with lcp[i][j] > 0
+        for i in range(n):
+            for j in range(n):
+                if lcp[i][j] > 0:
+                    union(i, j)
+
+        # Step 3: assign characters
+        group_to_char = {}
+        res = [''] * n
+        cur_char = 0
+
+        for i in range(n):
+            root = find(i)
+            if root not in group_to_char:
+                if cur_char >= 26:
+                    return ""
+                group_to_char[root] = chr(ord('a') + cur_char)
+                cur_char += 1
+            res[i] = group_to_char[root]
+
+        word = "".join(res)
+
+        # Step 4: validate by recomputing LCP
+        dp = [[0]*n for _ in range(n)]
+
+        for i in range(n-1, -1, -1):
+            for j in range(n-1, -1, -1):
+                if word[i] == word[j]:
+                    if i+1 < n and j+1 < n:
+                        dp[i][j] = 1 + dp[i+1][j+1]
+                    else:
+                        dp[i][j] = 1
+                else:
+                    dp[i][j] = 0
+
+                if dp[i][j] != lcp[i][j]:
+                    return ""
+
+        return word
+
+
