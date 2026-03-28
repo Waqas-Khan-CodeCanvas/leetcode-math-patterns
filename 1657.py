@@ -32,4 +32,20 @@ Apply Operation 2: "baaccc" -> "abbccc"
 """
 
 
+from collections import Counter
+
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        # Condition 1:
+        # Both strings must use the same set of characters
+        if set(word1) != set(word2):
+            return False
+        
+        # Condition 2:
+        # The frequency distributions must match (order doesn't matter)
+        freq1 = Counter(word1)
+        freq2 = Counter(word2)
+        
+        return sorted(freq1.values()) == sorted(freq2.values())
+
 
