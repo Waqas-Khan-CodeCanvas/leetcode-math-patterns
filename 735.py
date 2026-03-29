@@ -28,3 +28,24 @@ Output: [-6,2,4]
 Explanation: The asteroid -6 makes the asteroid 3 and 5 explode, and then continues going left. On the other side, the asteroid 2 makes the asteroid -1 explode and then continues going right, without reaching asteroid 4.
  """
  
+ 
+from typing import List
+
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        stack = []
+        
+        for asteroid in asteroids:
+            while stack and asteroid < 0 < stack[-1]:
+                if stack[-1] < -asteroid:
+                    stack.pop()
+                    continue
+                elif stack[-1] == -asteroid:
+                    stack.pop()
+                break
+            else:
+                stack.append(asteroid)
+        
+        return stack
+
+
