@@ -49,3 +49,16 @@ class Solution:
         return stack
 
 
+# test case
+if __name__ == "__main__":
+    sol = Solution()
+    tests = [
+        ([5, 10, -5], [5, 10]),
+        ([8, -8], []),
+        ([10, 2, -5], [10]),
+        ([3, 5, -6, 2, -1, 4], [-6, 2, 4])
+    ]
+
+    for i, (asteroids, expected) in enumerate(tests, 1):
+        result = sol.asteroidCollision(asteroids)
+        print(f"Test case {i}: input={asteroids} output={result} expected={expected} {'PASS' if result == expected else 'FAIL'}")
