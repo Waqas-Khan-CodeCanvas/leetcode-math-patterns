@@ -38,3 +38,15 @@ class Solution:
                 return i
         return -1
 
+# Test cases
+if __name__ == "__main__":
+    sol = Solution()
+    
+    test_cases = [
+        "abcacbd",
+        "abc",
+        "abcdab"
+    ]
+    
+    for s in test_cases:
+        print(f"{s} => {sol.firstMatchingIndex(s)}")
