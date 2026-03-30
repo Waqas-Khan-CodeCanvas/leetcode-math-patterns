@@ -30,3 +30,16 @@ class Solution:
             return False
         return True
 
+# Test cases
+if __name__ == "__main__":
+    sol = Solution()
+    
+    # Example 1
+    s1 = "abcd"
+    s2 = "cdab"
+    print(f"{s1} vs {s2} => {sol.canBeEqual(s1, s2)}")  # True
+
+    # Example 2
+    s1 = "abcd"
+    s2 = "dacb"
+    print(f"{s1} vs {s2} => {sol.canBeEqual(s1, s2)}")  # False
