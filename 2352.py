@@ -44,3 +44,12 @@ class Solution:
         return result
 
 
+# Example usage
+if __name__ == "__main__":
+    solution = Solution()
+    grid = [
+        [3, 2, 1],
+        [1, 7, 6],
+        [2, 7, 7]
+    ]
+    print("Number of equal row and column pairs:", solution.equalPairs(grid))
