@@ -20,3 +20,27 @@ Explanation: There are 3 equal row and column pairs:
 """
 
 
+
+from typing import List
+
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        
+        # Convert rows to tuples and count their frequencies
+        row_count = {}
+        for r in range(n):
+            row_tuple = tuple(grid[r])
+            row_count[row_tuple] = row_count.get(row_tuple, 0) + 1
+        
+        result = 0
+        
+        # For each column, create a tuple and check in row_count
+        for c in range(n):
+            col_tuple = tuple(grid[r][c] for r in range(n))
+            if col_tuple in row_count:
+                result += row_count[col_tuple]
+        
+        return result
+
+
