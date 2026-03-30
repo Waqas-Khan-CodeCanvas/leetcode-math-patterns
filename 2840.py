@@ -33,3 +33,13 @@ class Solution:
         
         return even1 == even2 and odd1 == odd2
 
+
+# ---- Run in VS Code ----
+if __name__ == "__main__":
+    s1 = input("Enter s1: ")
+    s2 = input("Enter s2: ")
+    
+    sol = Solution()
+    result = sol.checkStrings(s1, s2)
+    
+    print(result)
