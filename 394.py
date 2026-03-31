@@ -43,3 +43,22 @@ class Solution:
                 curr_str += ch
         
         return curr_str
+    
+    
+
+# test case
+if __name__ == "__main__":
+    sol = Solution()
+    
+    tests = [
+        ("3[a]2[bc]", "aaabcbc"),
+        ("3[a2[c]]", "accaccacc"),
+        ("2[abc]3[cd]ef", "abcabccdcdcdef"),
+    ]
+    
+    for s, expected in tests:
+        result = sol.decodeString(s)
+        print(f"Input: {s}")
+        print(f"Output: {result}")
+        print("PASS" if result == expected else "FAIL")
+        print("-" * 30)
