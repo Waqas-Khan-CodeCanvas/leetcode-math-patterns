@@ -93,3 +93,20 @@ class Solution:
         return "".join(word)
 
 
+# test case
+if __name__ == "__main__":
+    sol = Solution()
+    
+    test_cases = [
+        ("TFTF", "ab", "ababa"),
+        ("TFTF", "abc", ""),
+        ("F", "d", "a"),
+    ]
+    
+    for i, (str1, str2, expected) in enumerate(test_cases, 1):
+        result = sol.generateString(str1, str2)
+        print(f"Test {i}:")
+        print("Output  :", result)
+        print("Expected:", expected)
+        print("PASS" if result == expected else "FAIL")
+        print("-" * 40)
