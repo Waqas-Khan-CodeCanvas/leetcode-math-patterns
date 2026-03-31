@@ -33,3 +33,63 @@ Output: "a"
 """
 
 
+class Solution:
+    def generateString(self, str1: str, str2: str) -> str:
+        n, m = len(str1), len(str2)
+        size = n + m - 1
+        
+        word = ['?'] * size
+        fixed = [False] * size
+        
+        # Step 1: Apply 'T'
+        for i in range(n):
+            if str1[i] == 'T':
+                for j in range(m):
+                    pos = i + j
+                    if word[pos] == '?' or word[pos] == str2[j]:
+                        word[pos] = str2[j]
+                        fixed[pos] = True
+                    else:
+                        return ""
+        
+        # Step 2: Fill remaining with 'a'
+        for i in range(size):
+            if word[i] == '?':
+                word[i] = 'a'
+        
+        # Step 3: Handle 'F'
+        for i in range(n):
+            if str1[i] == 'F':
+                match = True
+                for j in range(m):
+                    if word[i + j] != str2[j]:
+                        match = False
+                        break
+                
+                if match:
+                    changed = False
+                    
+                    # RIGHTMOST change (critical fix)
+                    for j in range(m - 1, -1, -1):
+                        pos = i + j
+                        
+                        if fixed[pos]:
+                            continue
+                        
+                        original = word[pos]
+                        
+                        for c in 'abcdefghijklmnopqrstuvwxyz':
+                            if c != original:
+                                word[pos] = c
+                                changed = True
+                                break
+                        
+                        if changed:
+                            break
+                    
+                    if not changed:
+                        return ""
+        
+        return "".join(word)
+
+
