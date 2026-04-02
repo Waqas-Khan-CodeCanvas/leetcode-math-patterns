@@ -79,3 +79,12 @@ class Solution:
         
         return int(max(dp[m-1][n-1]))
 
+# test cases
+if __name__ == "__main__":
+    sol = Solution()
+    
+    coins1 = [[0,1,-1],[1,-2,3],[2,-3,4]]
+    print("Output 1:", sol.maximumAmount(coins1))  # Expected: 8
+    
+    coins2 = [[10,10,10],[10,10,10]]
+    print("Output 2:", sol.maximumAmount(coins2))  # Expected: 40
