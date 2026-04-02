@@ -32,3 +32,50 @@ Move to (1, 2), gaining the final 10 coins (total coins = 30 + 10 = 40).
 
 """
 
+
+from typing import List
+from math import inf
+
+class Solution:
+    def maximumAmount(self, coins: List[List[int]]) -> int:
+        m, n = len(coins), len(coins[0])
+        
+        dp = [[[-inf] * 3 for _ in range(n)] for _ in range(m)]
+        
+        # Initialize start
+        for k in range(3):
+            if coins[0][0] >= 0:
+                dp[0][0][k] = coins[0][0]
+            else:
+                dp[0][0][k] = 0 if k > 0 else coins[0][0]
+        
+        for i in range(m):
+            for j in range(n):
+                if i == 0 and j == 0:
+                    continue
+                
+                for k in range(3):
+                    val = coins[i][j]
+                    
+                    best_prev = -inf
+                    if i > 0:
+                        best_prev = max(best_prev, dp[i-1][j][k])
+                    if j > 0:
+                        best_prev = max(best_prev, dp[i][j-1][k])
+                    
+                    if best_prev != -inf:
+                        dp[i][j][k] = best_prev + val
+                    
+                    # Neutralize if negative
+                    if val < 0 and k > 0:
+                        best_prev_neutral = -inf
+                        if i > 0:
+                            best_prev_neutral = max(best_prev_neutral, dp[i-1][j][k-1])
+                        if j > 0:
+                            best_prev_neutral = max(best_prev_neutral, dp[i][j-1][k-1])
+                        
+                        if best_prev_neutral != -inf:
+                            dp[i][j][k] = max(dp[i][j][k], best_prev_neutral)
+        
+        return int(max(dp[m-1][n-1]))
+
