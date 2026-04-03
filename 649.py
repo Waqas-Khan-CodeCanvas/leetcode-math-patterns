@@ -61,3 +61,9 @@ class Solution:
         return "Radiant" if radiant else "Dire"
 
 
+# test case
+if __name__ == "__main__":
+    senate = input("Enter senate string (R/D): ").strip()
+    sol = Solution()
+    result = sol.predictPartyVictory(senate)
+    print("Winner:", result)
