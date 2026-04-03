@@ -33,3 +33,31 @@ And the third senator comes from Dire and he can ban the first senator's right i
 And in round 2, the third senator can just announce the victory since he is the only guy in the senate who can vote"""
 
 
+from collections import deque
+
+class Solution:
+    def predictPartyVictory(self, senate: str) -> str:
+        n = len(senate)
+        radiant = deque()
+        dire = deque()
+        
+        # Fill queues
+        for i, ch in enumerate(senate):
+            if ch == 'R':
+                radiant.append(i)
+            else:
+                dire.append(i)
+        
+        # Simulation
+        while radiant and dire:
+            r = radiant.popleft()
+            d = dire.popleft()
+            
+            if r < d:
+                radiant.append(r + n)
+            else:
+                dire.append(d + n)
+        
+        return "Radiant" if radiant else "Dire"
+
+
