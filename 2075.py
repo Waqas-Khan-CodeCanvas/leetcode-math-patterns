@@ -26,3 +26,11 @@ class Solution:
         
         return "".join(result).rstrip()
 
+
+#  test case
+if __name__ == "__main__":
+    sol = Solution()
+    
+    print(sol.decodeCiphertext("ch   ie   pr", 3))  # expected: "cipher"
+    print(sol.decodeCiphertext("iveo    eed   l te   olc", 4))  # expected: "i love leetcode"
+    print(sol.decodeCiphertext("coding", 1))  # expected: "coding"
