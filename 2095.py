@@ -29,7 +29,7 @@ class Solution:
         return head
 
 
-# 🔽 Helper functions for testing
+#  Helper functions for testing
 def build_list(arr):
     dummy = ListNode()
     cur = dummy
