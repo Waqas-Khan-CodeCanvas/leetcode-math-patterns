@@ -47,3 +47,15 @@ def print_list(head):
     print(result)
 
 
+# test cases
+if __name__ == "__main__":
+    sol = Solution()
+
+    head = build_list([1,3,4,7,1,2,6])
+    print_list(sol.deleteMiddle(head))  # [1,3,4,1,2,6]
+
+    head = build_list([1,2,3,4])
+    print_list(sol.deleteMiddle(head))  # [1,2,4]
+
+    head = build_list([2,1])
+    print_list(sol.deleteMiddle(head))  # [2]
