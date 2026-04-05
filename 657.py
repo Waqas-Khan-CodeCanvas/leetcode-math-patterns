@@ -21,5 +21,14 @@ Explanation: The robot moves left twice. It ends up two "moves" to the left of t
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
         return moves.count('U') == moves.count('D') and moves.count('L') == moves.count('R')
+
+# Test cases
+if __name__ == "__main__":
+    sol = Solution()
     
-    
+    print(sol.judgeCircle("UD"))    # Expected: True
+    print(sol.judgeCircle("LL"))    # Expected: False
+    print(sol.judgeCircle("UDLR")) # Expected: True
+    print(sol.judgeCircle("UUDD")) # Expected: True
+    print(sol.judgeCircle("RLUD")) # Expected: True
+    print(sol.judgeCircle("RRUL")) # Expected: False
