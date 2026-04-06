@@ -79,3 +79,10 @@ class Solution:
         return max_dist
 
 
+# Test cases
+if __name__ == "__main__":
+    sol = Solution()
+
+    print(sol.robotSim([4,-1,3], []))           # Expected: 25
+    print(sol.robotSim([4,-1,4,-2,4], [[2,4]])) # Expected: 65
+    print(sol.robotSim([6,-1,-1,6], [[0,0]]))   # Expected: 36
