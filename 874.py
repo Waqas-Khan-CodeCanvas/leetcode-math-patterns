@@ -51,3 +51,31 @@ Turn right.
 Move south 5 units and get blocked by the obstacle at (0,0), robot is at (0, 1).
 The furthest point the robot ever gets from the origin is (0, 6), which squared is 62 = 36 units away.
 """
+from typing import List
+
+class Solution:
+    def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
+        # Directions: North, East, South, West
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        obstacle_set = set(map(tuple, obstacles))
+        
+        x, y = 0, 0
+        d = 0  # Start facing North
+        max_dist = 0
+        
+        for cmd in commands:
+            if cmd == -2:       # Turn left
+                d = (d - 1) % 4
+            elif cmd == -1:     # Turn right
+                d = (d + 1) % 4
+            else:               # Move forward k steps
+                dx, dy = directions[d]
+                for _ in range(cmd):
+                    if (x + dx, y + dy) not in obstacle_set:
+                        x += dx
+                        y += dy
+                        max_dist = max(max_dist, x*x + y*y)
+        
+        return max_dist
+
+
